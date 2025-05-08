@@ -1,5 +1,5 @@
 <?php
-namespace Package\Raxon\Task\Trait;
+namespace Package\Raxon\Markdown\Trait;
 
 use Raxon\Module\Core;
 
