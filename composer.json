@@ -1,0 +1,19 @@
+{
+    "name" : "raxon/task",
+    "description" : "raxon/task see https://raxon.org for detailed usage",
+    "type" : "package",
+    "keywords" : ["task", "raxon", "org", "library", "framework", "event", "raxon.org"],
+    "homepage": "https://raxon.org",
+    "require" : {
+        "ext-posix": "*",
+        "ext-zlib": "*",
+        "ext-iconv": "*",
+        "raxon/framework": "*",
+        "league/commonmark": "^2.5.3"
+    },
+    "license" : "MIT",
+    "authors" : [{
+        "name" : "Remco van der Velde",
+        "email" : "development@universeorange.com"
+    }]
+}
