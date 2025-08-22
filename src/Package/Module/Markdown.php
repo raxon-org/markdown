@@ -28,7 +28,14 @@ class Markdown {
         } else {
             unset($config['html_input']); //allow ?
         }
-
+        if(array_key_exists('html', $config)){
+            if($config['html'] === true){
+                unset($config['html_input']); //allow ?
+            } else{
+                $config['html_input'] = 'strip';
+            }
+            unset($config['html']);
+        }
         if(!array_key_exists('allow_unsafe_links', $config)){
             $config['allow_unsafe_links'] = false;
         }        
