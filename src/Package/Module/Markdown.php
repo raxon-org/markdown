@@ -18,14 +18,20 @@ class Markdown {
     /**
      * @throws CommonMarkException
      */
-    public static function parse(App $object, $string=''): string
+    public static function parse(App $object, string $string='', array $config = []): string
     {
         //options: App::options($object)
         //flags: App::flags($object)
-        $config = [
-            'html_input' => 'strip',
-            'allow_unsafe_links' => false,
-        ];
+
+        if(!array_key_exists('html_input', $config)){
+            $config['html_input'] = 'strip';
+        } else {
+            unset($config['html_input']); //allow ?
+        }
+
+        if(!array_key_exists('allow_unsafe_links', $config)){
+            $config['allow_unsafe_links'] = false;
+        }        
         $environment = new Environment($config);
         $environment->addExtension(new CommonMarkCoreExtension());
         $environment->addExtension(new GithubFlavoredMarkdownExtension());
