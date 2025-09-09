@@ -4,6 +4,9 @@ namespace Package\Raxon\Markdown\Module;
 use Raxon\App;
 
 use Raxon\Module\Core;
+use Raxon\Module\Dir;
+use Raxon\Module\Data;
+use Raxon\Parse\Module\Parse;
 
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\Attributes\AttributesExtension;
@@ -52,11 +55,8 @@ class Markdown {
         return str_replace(['<p><!--', '--></p>'], ['<!--', '-->'], $string);
     }
 
-    public function markdown_read($url=null, $code=false): string
-    {
-        $object = $this->object();
-        $parse = $this->parse();
-        $data = $this->data();
+    public static function read(App $object, Parse $parse, Data $data, $url=null, $code=false): string
+    {        
         if(!File::exist($url)){
             throw new FileNotExistException('File not found: ' . $url);
 
@@ -92,6 +92,7 @@ class Markdown {
                 $object->config('markdown.dir', $markdown_dir);
             }
         }    
+        d($data);
         d($code);
         ddd($url);    
 
