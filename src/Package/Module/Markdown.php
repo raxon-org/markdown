@@ -58,7 +58,7 @@ class Markdown {
         return str_replace(['<p><!--', '--></p>'], ['<!--', '-->'], $string);
     }
 
-    public static function read(App $object, Parse $parse, Data $data, $url=null, $code=false): string
+    public static function read(App $object, Parse $parse, Data $data, string $url=null, bool $code=false, array $config=[]): string
     {        
         if(!File::exist($url)){
             throw new FileNotExistException('File not found: ' . $url);
@@ -96,9 +96,11 @@ class Markdown {
             }
         }    
         $read = File::read($url);
-        d($data);
-        d($code);
-        ddd($read);    
+        $read = Markdown::parse($object, $read, $config);        
+        if($code){
+            $read = $parse->compile($read, $data)
+        }
+        return $read;
 
     }
 
