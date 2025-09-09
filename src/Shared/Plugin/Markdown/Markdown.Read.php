@@ -2,7 +2,7 @@
 namespace Plugin;
 
 use League\CommonMark\Exception\CommonMarkException;
-use Package\Raxon\Markdown\Module\MarkDown;
+use Package\Raxon\Markdown\Module\Markdown;
 use Raxon\Exception\FileNotExistException;
 use Raxon\Exception\FileWriteException;
 use Raxon\Exception\ObjectException;
@@ -57,6 +57,6 @@ trait Markdown_Read {
                 $object->config('markdown.dir', $markdown_dir);
             }
         }        
-        return MarkDown::read($object, $parse, $data, $url, $code);
+        return Markdown::read($object, $parse, $data, $url, $code);
     }
 }
