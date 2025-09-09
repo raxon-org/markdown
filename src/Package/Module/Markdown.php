@@ -95,9 +95,10 @@ class Markdown {
                 $object->config('markdown.dir', $markdown_dir);
             }
         }    
+        $read = File::read($url);
         d($data);
         d($code);
-        ddd($url);    
+        ddd($read);    
 
     }
 
