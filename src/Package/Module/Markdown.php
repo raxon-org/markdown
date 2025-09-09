@@ -62,7 +62,6 @@ class Markdown {
     {        
         if(!File::exist($url)){
             throw new FileNotExistException('File not found: ' . $url);
-
         }
         $mtime = File::mtime($url);        
         $require_disabled = $object->config('require.disabled');
