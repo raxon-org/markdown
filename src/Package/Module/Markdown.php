@@ -97,10 +97,9 @@ class Markdown {
         $read = File::read($url);
         $read = Markdown::parse($object, $read, $config);        
         if($code){
-            $read = $parse->compile($read, $data)
+            $read = $parse->compile($read, $data);
         }
         return $read;
-
     }
 
 }
